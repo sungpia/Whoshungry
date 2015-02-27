@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Rails Whoshungry: development" uuid="fee751ec-764d-4322-8941-cd6a77f88a9f">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails Whoshungry: test" uuid="fb12c8f1-1601-46b0-9359-2178d01c3ea7">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails Whoshungry: production" uuid="875dddf5-abf3-44f2-a8f7-9f9ee3874e7c">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>
