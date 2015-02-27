@@ -1,11 +1,10 @@
 class CreateDevices < ActiveRecord::Migration
   def change
     create_table :devices do |t|
-			t.belongs_to :user
-			t.string :os_type
-			t.string :push_id
+			t.belongs_to :user, null: false, index: true
+			t.string :os_type, null: false # ios, android, web
+			t.string :push_id #can be null if it's webapp
       t.timestamps null: false
     end
-		add_index(:devices, :user_id)
   end
 end
