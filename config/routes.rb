@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+	namespace :v1 do
+		#user
+		match 'user', to: 'user#create', via: :post
+		#session
+		match 'login', to: 'user#login', via: :post
+		#group
+		match '/:token/group', to: 'group#create', via: :post
+		#votes
+		match '/:token/:group_id/vote', to: 'vote#create', via: :post
+	end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

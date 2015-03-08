@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227013507) do
+ActiveRecord::Schema.define(version: 20150307163032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "auths", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "login_type"
+    t.string   "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "chats", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -28,8 +36,8 @@ ActiveRecord::Schema.define(version: 20150227013507) do
   add_index "chats", ["vote_id"], name: "index_chats_on_vote_id", using: :btree
 
   create_table "choices", force: :cascade do |t|
-    t.integer  "vote_id",                   null: false
-    t.integer  "restaurant_id",             null: false
+    t.integer  "vote_id"
+    t.integer  "restaurant_id"
     t.integer  "count",         default: 0
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
@@ -39,8 +47,8 @@ ActiveRecord::Schema.define(version: 20150227013507) do
   add_index "choices", ["vote_id"], name: "index_choices_on_vote_id", using: :btree
 
   create_table "crews", force: :cascade do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "group_id",   null: false
+    t.integer  "user_id"
+    t.integer  "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,7 +57,7 @@ ActiveRecord::Schema.define(version: 20150227013507) do
   add_index "crews", ["user_id"], name: "index_crews_on_user_id", using: :btree
 
   create_table "devices", force: :cascade do |t|
-    t.integer  "user_id",    null: false
+    t.integer  "user_id"
     t.string   "os_type",    null: false
     t.string   "push_id"
     t.datetime "created_at", null: false
@@ -59,7 +67,7 @@ ActiveRecord::Schema.define(version: 20150227013507) do
   add_index "devices", ["user_id"], name: "index_devices_on_user_id", using: :btree
 
   create_table "groups", force: :cascade do |t|
-    t.integer  "user_id",    null: false
+    t.integer  "user_id"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -90,6 +98,7 @@ ActiveRecord::Schema.define(version: 20150227013507) do
     t.float    "lat"
     t.float    "lng"
     t.string   "name"
+    t.string   "picture"
     t.float    "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -116,19 +125,22 @@ ActiveRecord::Schema.define(version: 20150227013507) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer  "fb_id"
-    t.string   "name",       null: false
+    t.string   "fb_id"
+    t.string   "name",                        null: false
     t.string   "picture"
-    t.string   "contact",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "contact",                     null: false
+    t.string   "role",       default: "user"
+    t.string   "email",                       null: false
+    t.string   "password"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "users", ["fb_id"], name: "index_users_on_fb_id", using: :btree
 
   create_table "votes", force: :cascade do |t|
-    t.integer  "group_id",      null: false
-    t.string   "type"
+    t.integer  "group_id"
+    t.string   "vote_type"
     t.string   "name"
     t.integer  "expires_in"
     t.integer  "restaurant_id"

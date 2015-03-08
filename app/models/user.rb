@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 	has_many :choices, through: :votes
 	has_many :locations
 	has_many :devices
-
+	has_one :auth
 	#some method like this..
 	def be_friend(user)
 

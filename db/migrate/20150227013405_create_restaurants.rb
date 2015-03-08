@@ -5,6 +5,7 @@ class CreateRestaurants < ActiveRecord::Migration
 			t.float :lat
 			t.float :lng
 			t.string :name
+			t.string :picture
 			t.float :rating
       t.timestamps null: false
     end
