@@ -44,3 +44,8 @@ group :development, :test do
 end
 
 gem 'json'
+gem 'apns'
+gem 'sidekiq'
+gem 'sinatra'
+
+gem 'rabl'

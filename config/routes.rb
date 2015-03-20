@@ -1,14 +1,33 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
 
+	mount Sidekiq::Web, at: "/sidekiq"
 	namespace :v1 do
 		#user
 		match 'user', to: 'user#create', via: :post
+		match 'user/:token/:id', to: 'user#show', via: :get
+		match 'user/:token/:id', to: 'user#destroy', via: :delete
+		match 'user/:token/:id', to: 'user#update', via: :update
 		#session
 		match 'login', to: 'user#login', via: :post
 		#group
 		match '/:token/group', to: 'group#create', via: :post
+		match '/:token/group/:id', to: 'group#show', via: :get
+		match '/:token/group/:id', to: 'group#update', via: :update
+		match '/:token/group/:id', to: 'group#destroy', via: :delete
 		#votes
 		match '/:token/:group_id/vote', to: 'vote#create', via: :post
+		match '/:token/:group_id/vote/:id', to: 'vote#show', via: :get
+		#match '/:token/:group_id/vote/:id', to: 'vote#update', via: :update
+		match '/:token/:group_id/vote/:id', to: 'vote#destroy', via: :delete
+		#choice
+		match '/:token/:vote_id/choices', to: 'choice#index', via: :get
+		match '/:token/:vote_id/choices', to: 'choice#create', via: :post
+		match '/:token/:vote_id/choice/:id', to: 'choice#show', via: :get
+		#match '/:token/:vote_id/choice/:id', to: 'choice#update', via: :get
+		match '/:token/:vote_id/choice/:id', to: 'choice#destroy', via: :delete
+		match '/:token/:vote_id/choice/:id', to: 'choice#make', via: :post
+
 	end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
