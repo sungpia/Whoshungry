@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150307163032) do
+ActiveRecord::Schema.define(version: 20150404073531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,8 +39,9 @@ ActiveRecord::Schema.define(version: 20150307163032) do
     t.integer  "vote_id"
     t.integer  "restaurant_id"
     t.integer  "count",         default: 0
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.boolean  "count_lock",    default: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   add_index "choices", ["restaurant_id"], name: "index_choices_on_restaurant_id", using: :btree
@@ -75,11 +76,11 @@ ActiveRecord::Schema.define(version: 20150307163032) do
 
   create_table "locations", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "pickup"
+    t.integer  "pickup",     default: 0
     t.float    "lat"
     t.float    "lng"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -126,17 +127,25 @@ ActiveRecord::Schema.define(version: 20150307163032) do
 
   create_table "users", force: :cascade do |t|
     t.string   "fb_id"
-    t.string   "name",                        null: false
+    t.string   "name"
     t.string   "picture"
-    t.string   "contact",                     null: false
+    t.string   "contact"
     t.string   "role",       default: "user"
-    t.string   "email",                       null: false
+    t.string   "email"
     t.string   "password"
+    t.boolean  "registered", default: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end
 
   add_index "users", ["fb_id"], name: "index_users_on_fb_id", using: :btree
+
+  create_table "verifications", force: :cascade do |t|
+    t.string   "code",       null: false
+    t.string   "contact",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "votes", force: :cascade do |t|
     t.integer  "group_id"

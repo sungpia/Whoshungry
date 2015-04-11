@@ -1,6 +1,6 @@
 module V1
 	class ChoiceController < ApplicationController
-		before_action :get_user, :get_vote
+		before_action :get_user, :get_vote, except: [:make ]
 		before_action :get_choice, except: [:create, :index]
 		def create
 			if Restaurant.exists?(place_id: params[:place_id])
@@ -16,7 +16,12 @@ module V1
 				@restaurant.save
 			end
 
-			@vote.restaurants << @restaurant
+			#check duplication
+			if Choice.exists?(vote: @vote, restaurant: @restaurant)
+				render text: "Already existing restaurant in Vote", status: 409 and return
+			else
+				@vote.restaurants << @restaurant
+			end
 			@choice = Choice.find_by(vote_id: @vote.id, restaurant_id: @restaurant.id)
 			render "v1/choice/create", status: 201
 		end
@@ -28,8 +33,11 @@ module V1
 			render "v1/choice/show", status: 200
 		end
 		def make
+			#BAD METHOD, should take it off
 			@choice.count = @choice.count + params[:count].to_i
 			@choice.save
+
+			VoteMadeJob.perform_now(@vote.group)
 			render "v1/choice/make", status: 201
 		end
 		def destroy

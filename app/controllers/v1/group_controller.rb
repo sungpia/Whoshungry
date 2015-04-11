@@ -1,8 +1,6 @@
 module V1
 	class GroupController <ApplicationController
-		before_action :get_user
-		before_action :get_group, except: :create
-		before_action :parse_invitation
+		before_action :get_user, :validate
 
 		def create
 			invitation = JSON.parse(request.raw_post)["invitation"]
@@ -10,29 +8,42 @@ module V1
 			@group.user_id = @user.id
 			@group.users << @user
 			@group.save
-			invitation.each do |invite|
-				if invite.has_key?("id")
-					user = User.find(invite["id"])
-				elsif invite.has_key?("fb_id")
-					user = User.find_by(fb_id: invite["fb_id"])
-				end
-				puts @group.users.exists?(id: user.id)
-				if @group.users.exists?(id: user.id) != true
-					@group.users.each do |x|
-						puts x.id
+			begin
+				invitation.each do |invite|
+					if invite.has_key?("contact") #validating form
+						if User.exists?(contact: invite["contact"]) #Does user exists with contact? else invite through Twilio
+							if User.find_by(contact: invite["contact"]).registered == true #If not ghost user
+								user = User.find_by(contact: invite["contact"])
+							else
+								InviteThroughTwilioJob(invite["contact"], @user.name)
+							end
+						else
+							#creates possible user
+							new_user = User.new
+							new_user.contact = invite["contact"]
+							new_user.save
+
+							InviteThroughTwilioJob(invite["contact"], @user.name)
+						end
 					end
-					puts "above : already on group"
-					puts user.id
-					@group.users << user
+
+					if @group.users.exists?(id: user.id) != true
+						@group.users << user
+					end
 				end
+				@group.save
+			rescue
+				render text: "invalid format", status: 404 and return
+				false
 			end
-			@group.save
 
 			render "v1/group/create", status: 201
 		end
+
 		def show
 			render "v1/group/show", status: 200
 		end
+
 		def update
 			invitation = JSON.parse(request.raw_post)["invitation"]
 			@group.users.delete_all
@@ -67,39 +78,45 @@ module V1
 			end
 
 		end
+
 		private
 		def get_user
-			begin
+			if Auth.exists?(token: params[:token])
 				@user = Auth.find_by(token: params[:token]).user
-			rescue
+			else
 				render text: "not authorized user", status: 401
-				return false
-			end
-		end
-		def get_group
-			begin
-				@group = Group.find(params[:id])
-			rescue
-				render text: "not existing group", status: 404
-				return false
+				false
 			end
 		end
 
-		def parse_invitation
-			@invitation = JSON.parse(request.raw_post)["invitation"]
+		def validate
+			puts "validating"
+			invitation = JSON.parse(request.raw_post)["invitation"]
 			begin
-				@invitation.each do |invite|
-					if invite.has_key?("id")
-						user = User.find(invite["id"])
-					elsif invite.has_key?("fb_id")
-						user = User.find_by(fb_id: invite["fb_id"])
+				invitation.each do |invite|
+					puts invite
+					if invite.has_key?("contact")
+						puts "yes1"
+						if User.exists?(contact: invite["contact"])
+							puts "yes2"
+							if User.find_by(contact: invite["contact"]).registered == true
+								puts "yes3"
+								user = User.find_by(contact: invite["contact"])
+								puts user
+							else
+								#creates possible user
+								render text: "invalid format 1", status: 404
+								false
+							end
+						end
 					end
 				end
+					puts "ok"
 			rescue
-				render text: "invalid format"
-				return false
+				puts "wrong"
+				render text: "invalid format 2", status: 404
+				false
 			end
 		end
-
 	end
 end

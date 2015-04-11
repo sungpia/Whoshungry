@@ -4,6 +4,7 @@ class CreateChoices < ActiveRecord::Migration
 			t.belongs_to :vote, index: true
 			t.belongs_to :restaurant, index: true
 			t.integer :count, default: 0
+			t.boolean :count_lock, default: false
       t.timestamps null: false
     end
   end

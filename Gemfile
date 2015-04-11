@@ -49,3 +49,7 @@ gem 'sidekiq'
 gem 'sinatra'
 
 gem 'rabl'
+gem 'twilio-ruby'
+gem 'passenger'
+gem 'capistrano'
+gem 'capistrano-ext'

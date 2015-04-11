@@ -1,7 +1,8 @@
 module V1
 	class VoteController < ApplicationController
-		before_action :get_group, :get_user
-		before_action :get_vote, except: :create
+		before_action :get_group, except: [:index]
+		before_action :get_user
+		before_action :get_vote, except: [:create, :index]
 		before_action :parse_restaurants, only: [:create, :update]
 
 		def create
@@ -15,18 +16,24 @@ module V1
 				@vote.restaurants << Restaurant.find_by(place_id: restaurant["place_id"])
 			end
 			@vote.save
-
 			@group.votes << @vote
 
+			@vote.group.users.each do |user|
+				rsvp = Rsvp.new(user: user, vote: @vote, rsvp: 1)
+				rsvp.save
+			end
+
 			#make push invitations to people
-			InvitePeopleJob.perform_now(@group)
+			InvitePeopleJob.perform_now(@group,@vote.id)
 			#work queue for closing vote
 			CloseVoteJob.set(wait: @vote.expires_in.minutes).perform_later(@group, @vote.id)
 			#
 
 			render "v1/vote/create", status: 201
 		end
+		def index
 
+		end
 		def show
 			render "v1/vote/show", status: 200
 		end

@@ -10,12 +10,18 @@ class User < ActiveRecord::Base
 	has_many :rsvps, dependent: :destroy
 	has_many :votes, through: :rsvps
 	has_many :chats, dependent: :destroy
-	has_many :votes, through: :chats
 	has_many :choices, through: :votes
 	has_many :locations, dependent: :destroy
 	has_many :devices, dependent: :destroy
 	has_one :auth, dependent: :destroy
 	#some method like this..
+	before_save :refine_contact
+
+	def refine_contact
+		if self.contact.length == 10
+			self.contact = "+1" + self.contact
+		end
+	end
 	def be_friend(user)
 
 	end

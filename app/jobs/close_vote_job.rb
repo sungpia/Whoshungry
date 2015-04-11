@@ -7,16 +7,17 @@ class CloseVoteJob < ActiveJob::Base
 		winner = choices.order(count: :desc).first
 		vote.restaurant_id= winner.restaurant_id
 		vote.save
-		puts "WORK DONE"
-		puts winner
-		puts winner.restaurant_id
-		puts vote
-
+		restaurant = Restaurant.find(winner.restaurant_id)
 	  group.users.each do |user|
 		  puts user
 		  user.devices.each do |device|
 			  puts device.push_id
-			  CloseVotePushJob.perform_now(device.push_id, "hey", "")
+			  CloseVotePushJob.perform_now(device.push_id,
+			                               restaurant.name,
+			                               restaurant.id,
+			                               vote.id,
+			                               group.id
+			  )
 		  end
 	  end
   end

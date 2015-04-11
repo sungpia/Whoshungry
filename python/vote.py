@@ -29,15 +29,16 @@ tmp["rating"] = 4.32
 create_vote["restaurants"].append(tmp)
 
 create_vote = json.dumps(create_vote)
-group_id = 11
+group_id = 1
 
 login1 = {
-	"id" : 1,
-	"password" : "1234"
+	"user_id" : 1,
+	"access_token" : "001001002003"
 }
-
-logindata= json.loads(requests.post(BASEURL+"login", data=login1).text)
+print create_vote
+logindata= json.loads(requests.post(BASEURL+"auth", data=login1).text)
 token= logindata["token"]
 user_id = logindata["user_id"]
+print requests.post(BASEURL + token + "/" + str(group_id) + "/votes", data = create_vote).text
 
-print requests.get(BASEURL + token + "/" + str(group_id) + "/vote" + "/1", data = create_vote).text
+#create vote: {"id":2,"group_id":7,"vote_type":null,"name":"Let's go Lunch","expires_in":1,"expires_at":"2015-03-07 21:24:17 UTC","created_at":"2015-03-29 21:19:17 UTC","updated_at":"2015-03-29 21:19:17 UTC","choices":[{"id":3,"vote_id":2,"restaurant_id":1,"count":0,"count_lock":false,"created_at":"2015-03-29 21:19:17 UTC","updated_at":"2015-03-29 21:19:17 UTC"},{"id":4,"vote_id":2,"restaurant_id":2,"count":0,"count_lock":false,"created_at":"2015-03-29 21:19:17 UTC","updated_at":"2015-03-29 21:19:17 UTC"}]}
