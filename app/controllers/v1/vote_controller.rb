@@ -76,7 +76,7 @@ module V1
 			begin
 				# @parsed = JSON.parse(request.raw_post)
 				# @restaurants = @parsed["restaurants"]
-				@restaurants = params[:restaurant]
+				@restaurants = params[:restaurants]
 				@restaurants.each do |restaurant|
 					if Restaurant.exists?(place_id: restaurant["place_id"])
 					else
