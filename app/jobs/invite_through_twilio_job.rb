@@ -12,6 +12,9 @@ class InviteThroughTwilioJob < ActiveJob::Base
 	  if contact.length == 10
 			contact = "+1" + contact
 	  end
+	  puts contact
+	  puts invite_message
+
 # set up a client to talk to the Twilio REST API
 	  @client = Twilio::REST::Client.new account_sid, auth_token
 

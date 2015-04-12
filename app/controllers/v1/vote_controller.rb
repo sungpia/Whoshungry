@@ -6,7 +6,6 @@ module V1
 		before_action :parse_restaurants, only: [:create, :update]
 
 		def create
-			puts @parsed
 			@vote = Vote.new
 			@vote.vote_type = @parsed["type"]
 			@vote.name = @parsed["name"]
@@ -74,8 +73,9 @@ module V1
 		end
 		def parse_restaurants
 			begin
-				@parsed = JSON.parse(request.raw_post)
-				@restaurants = @parsed["restaurants"]
+				# @parsed = JSON.parse(request.raw_post)
+				# @restaurants = @parsed["restaurants"]
+				@restaurants = params[:restaurant]
 				@restaurants.each do |restaurant|
 					if Restaurant.exists?(place_id: restaurant["place_id"])
 					else
