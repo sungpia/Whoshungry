@@ -8,7 +8,6 @@ module V1
 			@group.user_id = @user.id
 			@group.users << @user
 			@group.save
-			begin
 				invitation.each do |invite|
 					puts "DEBUG POINT1"
 					if invite.has_key?("contact") #validating form
@@ -44,10 +43,10 @@ module V1
 					end
 				end
 				@group.save
-			rescue
-				render json: {error: "invalid format"}, status: 404 and return
-				false
-			end
+			# rescue
+			# 	render json: {error: "invalid format"}, status: 404 and return
+			# 	false
+			# end
 
 			render "v1/group/create", status: 201
 		end
