@@ -48,6 +48,7 @@ module V1
 		end
 
 		def show
+			@group = Group.find(params[:group_id])
 			render "v1/group/show", status: 200
 		end
 
