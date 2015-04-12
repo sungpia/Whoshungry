@@ -1,6 +1,6 @@
 module V1
 	class VoteController < ApplicationController
-		before_action :get_group, except: [:index]
+		before_action :get_group, except: [:index, :show]
 		before_action :get_user
 		before_action :get_vote, except: [:create, :index]
 		before_action :parse_restaurants, only: [:create, :update]
@@ -67,7 +67,7 @@ module V1
 		end
 		def get_vote
 			begin
-				@vote = Vote.find(params[:id])
+				@vote = Vote.find(params[:vote_id])
 			rescue
 				render json: {error: "invalid vote"}, status: 404
 			end

@@ -3,7 +3,8 @@ module V1
 		before_action :get_user
 		before_action :validate, only: [:create]
 		def create
-			invitation = JSON.parse(request.raw_post)["invitation"]
+			#invitation = JSON.parse(request.raw_post)["invitation"]
+			invitation = params[:invitation]
 			@group = Group.new
 			@group.user_id = @user.id
 			@group.users << @user
@@ -112,7 +113,8 @@ module V1
 
 		def validate
 			puts "validating"
-			invitation = JSON.parse(request.raw_post)["invitation"]
+			#invitation = JSON.parse(request.raw_post)["invitation"]
+			invitation = params[:invitation]
 			begin
 				invitation.each do |invite|
 					puts invite

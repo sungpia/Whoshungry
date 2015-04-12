@@ -39,6 +39,7 @@ print create_vote
 logindata= json.loads(requests.post(BASEURL+"auth", data=login1).text)
 token= logindata["token"]
 user_id = logindata["user_id"]
+#print requests.get(BASEURL + token + "/vote/1").text
 print requests.post(BASEURL + token + "/" + str(group_id) + "/votes", data = create_vote).text
 
 #create vote: {"id":2,"group_id":7,"vote_type":null,"name":"Let's go Lunch","expires_in":1,"expires_at":"2015-03-07 21:24:17 UTC","created_at":"2015-03-29 21:19:17 UTC","updated_at":"2015-03-29 21:19:17 UTC","choices":[{"id":3,"vote_id":2,"restaurant_id":1,"count":0,"count_lock":false,"created_at":"2015-03-29 21:19:17 UTC","updated_at":"2015-03-29 21:19:17 UTC"},{"id":4,"vote_id":2,"restaurant_id":2,"count":0,"count_lock":false,"created_at":"2015-03-29 21:19:17 UTC","updated_at":"2015-03-29 21:19:17 UTC"}]}
