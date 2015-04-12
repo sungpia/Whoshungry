@@ -55,7 +55,7 @@ module V1
 					render "/v1/user/create",  status: 201
 				else
 
-					render json: {id: @user.id, error: "duplicate user : use update"}, status: 409
+					render json: {id: @user.id, error: "duplicate user : use update"}, status: 200
 				end
 			end
 		end
