@@ -1,6 +1,6 @@
 import requests
 import json
-BASEURL = "https://whoshungryapi.com/v1/"
+BASEURL = "http://localhost:3000/v1/"
 
 login1 = {
 	"user_id" : 1,

@@ -20,7 +20,7 @@ module V1
 								puts "DEBUG POINT5"
 							else
 								puts "DEBUG POINT6"
-								InviteThroughTwilioJob(invite["contact"], @user.name)
+								InviteThroughTwilioJob.perform_now(invite["contact"], @user.name)
 								puts "DEBUG POINT7"
 							end
 							puts "DEBUG POINT8"
@@ -31,7 +31,7 @@ module V1
 							user.contact = invite["contact"]
 							user.save
 							puts "DEBUG POINT10"
-							InviteThroughTwilioJob(invite["contact"], @user.name)
+							InviteThroughTwilioJob.perform_now(invite["contact"], @user.name)
 							puts "DEBUG POINT11"
 						end
 						puts "DEBUG POINT12"
