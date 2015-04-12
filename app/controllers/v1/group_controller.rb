@@ -109,8 +109,8 @@ module V1
 								puts user
 							else
 								#creates possible user
-								render json: {error: "invalid format 1"}, status: 404
-								false
+								#render json: {error: "invalid format 1"}, status: 404
+								#false
 							end
 						end
 					end
