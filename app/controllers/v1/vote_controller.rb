@@ -8,7 +8,7 @@ module V1
 		def create
 
 			@vote = Vote.new
-			@vote.vote_type = params[:type]
+			@vote.vote_type = params[:vote_type]
 			@vote.name = params[:name]
 			@vote.expires_in = params[:expires_in]
 			@vote.expires_at = params[:expires_at]
