@@ -22,7 +22,7 @@ module V1
 			if Auth.exists?(token: params[:token])
 				@user = Auth.find_by(token: params[:token]).user
 			else
-				render text: "invalid token", status: 401
+				render json: {error: "invalid token"}, status: 401
 			end
 		end
 	end

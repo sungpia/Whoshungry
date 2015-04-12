@@ -10,7 +10,7 @@ module V1
 				@auth = Auth.find_by(user: @user)
 				render 'v1/auth/login', status: 200
 			else
-				render text: "not valid access_token : check your documentation", status: 401
+				render json: {error: "not valid access_token : check your documentation"}, status: 401
 			end
 		end
 
@@ -22,7 +22,7 @@ module V1
 				@user = User.find(params[:user_id])
 				puts @user
 			else
-				render text: "not existing user_id : check your documentation", status: 400
+				render json: {error: "not existing user_id : check your documentation"}, status: 400
 				false
 			end
 		end

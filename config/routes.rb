@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 		match 'auth', to: 'auth#login', via: :post
 		#group
 		match '/:token/groups', to: 'group#create', via: :post
-		# match '/:token/group/:id', to: 'group#show', via: :get
+		match '/:token/groups', to: 'group#index', via: :get
+		# match via :get
 		# match '/:token/group/:id', to: 'group#update', via: :update
 		# match '/:token/group/:id', to: 'group#destroy', via: :delete
 		#votes

@@ -8,7 +8,7 @@ module V1
 
 			VerifyThroughTwilioJob.perform_now(verification.contact, verification.code)
 
-			render json: {message: "SENT"}, status: 200
+			render json: {error: "SENT"}, status: 200
 		end
 		def verify
 			verification = Verification.where(contact: params[:contact]).last
@@ -20,14 +20,14 @@ module V1
 				text = "WRONG"
 			end
 
-			render json: {message: text}, status: 200
+			render json: {error: text}, status: 200
 		end
 
 		private
 
 		def check_params
 			if not params.has_key?(:contact)
-				render json: {message: "No contact"}, status: 404
+				render json: {error: "No contact"}, status: 404
 				false
 			end
 		end

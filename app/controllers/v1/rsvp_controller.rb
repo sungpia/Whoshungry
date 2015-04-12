@@ -17,14 +17,14 @@ module V1
 			if Auth.exists?(token: params[:token])
 				@user = Auth.find_by(token: params[:token]).user
 			else
-				render text: "Unauthorized User", status: 401
+				render json: {error: "Unauthorized User"}, status: 401
 			end
 		end
 		def get_vote
 			if Vote.exists?(params[:vote_id])
 				@vote = Vote.find(params[:vote_id])
 			else
-				render text: "Invalid vote_id", status: 404
+				render json: {error: "Invalid vote_id"}, status: 404
 			end
 		end
 	end

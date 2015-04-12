@@ -31,7 +31,7 @@ module V1
 
 				render "/v1/user/create", status: 201
 			else #Else let user to use update
-				render text: "duplicate user : use update", status: 409
+				render json: {error: "duplicate user : use update"}, status: 409
 			end
 		end
 

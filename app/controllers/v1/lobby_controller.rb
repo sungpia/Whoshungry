@@ -13,7 +13,7 @@ module V1
 			if Auth.exists?(token: params[:token])
 				@user = Auth.find_by(token: params[:token]).user
 			else
-				render text: "not authorized user", status: 401
+				render json: {error: "not authorized user"}, status: 401
 				false
 			end
 		end

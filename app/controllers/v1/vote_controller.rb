@@ -54,14 +54,14 @@ module V1
 			begin
 				@group = Group.find(params[:group_id])
 			rescue
-				render text: "invalid group_id", status: 404
+				render json: {error: "invalid group_id"}, status: 404
 			end
 		end
 		def get_user
 			begin
 				@user = Auth.find_by(token: params[:token]).user
 			rescue
-				render text: "not authorized user", status: 401
+				render json: {error: "not authorized user"}, status: 401
 				return false
 			end
 		end
@@ -69,7 +69,7 @@ module V1
 			begin
 				@vote = Vote.find(params[:id])
 			rescue
-				render text: "invalid vote", status: 404
+				render json: {error: "invalid vote"}, status: 404
 			end
 		end
 		def parse_restaurants
@@ -90,7 +90,7 @@ module V1
 					end
 				end
 			rescue
-				render text: "invalid restaurant form", status: 400
+				render json: {error: "invalid restaurant form"}, status: 400
 				return false
 			end
 

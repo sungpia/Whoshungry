@@ -1,7 +1,7 @@
 module V1
 	class GroupController <ApplicationController
-		before_action :get_user, :validate
-
+		before_action :get_user
+		before_action :validate, only: [:create]
 		def create
 			invitation = JSON.parse(request.raw_post)["invitation"]
 			@group = Group.new
@@ -33,7 +33,7 @@ module V1
 				end
 				@group.save
 			rescue
-				render text: "invalid format", status: 404 and return
+				render json: {error: "invalid format"}, status: 404 and return
 				false
 			end
 
@@ -44,6 +44,10 @@ module V1
 			render "v1/group/show", status: 200
 		end
 
+		def index
+			@groups = @user.groups
+			render json: @groups, status: 200
+		end
 		def update
 			invitation = JSON.parse(request.raw_post)["invitation"]
 			@group.users.delete_all
@@ -74,7 +78,7 @@ module V1
 				@group.destroy
 				render status: 204
 			else
-				render text: "no right", status: 401
+				render json: {error: "no right"}, status: 401
 			end
 
 		end
@@ -84,7 +88,7 @@ module V1
 			if Auth.exists?(token: params[:token])
 				@user = Auth.find_by(token: params[:token]).user
 			else
-				render text: "not authorized user", status: 401
+				render json: {error: "not authorized user"}, status: 401
 				false
 			end
 		end
@@ -105,7 +109,7 @@ module V1
 								puts user
 							else
 								#creates possible user
-								render text: "invalid format 1", status: 404
+								render json: {error: "invalid format 1"}, status: 404
 								false
 							end
 						end
@@ -114,7 +118,7 @@ module V1
 					puts "ok"
 			rescue
 				puts "wrong"
-				render text: "invalid format 2", status: 404
+				render json: {error: "invalid format 2"}, status: 404
 				false
 			end
 		end

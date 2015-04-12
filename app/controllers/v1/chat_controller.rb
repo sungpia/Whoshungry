@@ -21,14 +21,14 @@ module V1
 			begin
 				@user = Auth.find_by(token: params[:token]).user
 			rescue
-				render text: "not authorized user", status: 401
+				render json: {error: "not authorized user"}, status: 401
 			end
 		end
 		def get_vote
 			begin
 				@vote = Vote.find(params[:vote_id])
 			rescue
-				render text: "invalid vote id", status: 404
+				render json: {error: "invalid vote id"}, status: 404
 			end
 		end
 	end
