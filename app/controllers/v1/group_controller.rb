@@ -14,9 +14,11 @@ module V1
 						puts "DEBUG POINT2"
 						if User.exists?(contact: invite["contact"]) #Does user exists with contact? else invite through Twilio
 							puts "DEBUG POINT3"
+
+							user = User.find_by(contact: invite["contact"])
 							if User.find_by(contact: invite["contact"]).registered == true #If not ghost user
 								puts "DEBUG POINT4"
-								user = User.find_by(contact: invite["contact"])
+								# user = User.find_by(contact: invite["contact"])
 								puts "DEBUG POINT5"
 							else
 								puts "DEBUG POINT6"
@@ -38,8 +40,12 @@ module V1
 					end
 					puts "DEBUG POINT13"
 
-					if @group.users.exists?(id: user.id) != true
-						@group.users << user
+					@group.users.each do |u|
+						puts "USER id", user.id
+						puts "U id", u.id
+						if(u.id != user.id)
+							@group.users << user
+						end
 					end
 				end
 				@group.save
