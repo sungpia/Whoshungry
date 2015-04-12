@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 	namespace :v1 do
 		#user
 		match 'users', to: 'user#create', via: :post
-		# match 'user/:token/:id', to: 'user#show', via: :get
+		match 'user/:token/:user_id', to: 'user#show', via: :get
 		# match 'user/:token/:id', to: 'user#destroy', via: :delete
 		# match 'user/:token/:id', to: 'user#update', via: :update
 		#auth

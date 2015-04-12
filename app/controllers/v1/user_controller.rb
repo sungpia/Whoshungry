@@ -59,7 +59,9 @@ module V1
 				end
 			end
 		end
-
+		def show
+			render json: @user, status: 200
+		end
 		private
 		def refine_contact
 			if params[:contact].length == 10
@@ -67,7 +69,7 @@ module V1
 			end
 		end
 		def get_user
-			@user = User.find(params[:id])
+			@user = User.find(params[:user_id])
 			@devices = @user.devices
 		end
 
