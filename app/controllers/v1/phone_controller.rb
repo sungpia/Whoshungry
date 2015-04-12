@@ -19,14 +19,14 @@ module V1
 				text = "WRONG"
 			end
 
-			render text: text, status: 200
+			render json: {message: text}, status: 200
 		end
 
 		private
 
 		def check_params
 			if not params.has_key?(:contact)
-				render text: "No contact", status: 404
+				render json: {message: "No contact"}, status: 404
 				false
 			end
 		end
