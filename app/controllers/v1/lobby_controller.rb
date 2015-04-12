@@ -6,7 +6,7 @@ module V1
 		def index
 			@lobbies = @user.votes.order(created_at: :desc).limit(params[:limit]).offset(params[:offset])
 
-			render json: @lobbies, status: 200
+			render json: {lobbies: @lobbies}, status: 200
 		end
 		private
 		def get_user
