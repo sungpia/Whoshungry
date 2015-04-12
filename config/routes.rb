@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 		# match '/:token/group/:id', to: 'group#destroy', via: :delete
 		#votes
 		match '/:token/:group_id/votes', to: 'vote#create', via: :post
-		# match '/:token/:group_id/vote/:id', to: 'vote#show', via: :get
+		match '/:token/vote/:vote_id', to: 'vote#show', via: :get
 		# match '/:token/:group_id/vote/:id', to: 'vote#update', via: :update
 		# match '/:token/:group_id/vote/:id', to: 'vote#destroy', via: :delete
 		#choice

@@ -1,6 +1,6 @@
 import requests
 import json
-BASEURL = "http://52.8.26.183:3000/v1/"
+BASEURL = "https://whoshungryapi.com/v1/"
 
 user1 = {
 	     "name": "Sungwon Chung",
@@ -34,8 +34,7 @@ login2 = {
 }
 # create user 
 #print requests.post(BASEURL + "/users", data=user1).text
-print requests.post(BASEURL + "/users", data=user1).text
-
+print requests.post(BASEURL + "users", data=user1, verify=True).text
 # show user
 #print requests.get(BASEURL + "/user/" + token + "/" + str(user_id)).text
 # delete user

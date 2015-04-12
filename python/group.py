@@ -1,6 +1,6 @@
 import requests
 import json
-BASEURL = "https://www.whoshungryapi.com/v1/"
+BASEURL = "https://whoshungryapi.com/v1/"
 
 login1 = {
 	"user_id" : 1,
@@ -26,7 +26,8 @@ logindata= json.loads(requests.post(BASEURL+"auth", data=login1).text)
 token= logindata["token"]
 user_id = logindata["user_id"]
 group_id = 11
-print requests.get(BASEURL + token + "/groups", data= make_group).text
+#print requests.get(BASEURL + token + "/groups", data= make_group).text
+print requests.post(BASEURL + token + "/groups", data= make_group).text
 #print requests.delete(BASEURL + token + "/group", data= make_group).text
 #print requests.update(BASEURL + token + "/group", data= make_group).text
 #print requests.get(BASEURL + token + "/group/" + str(group_id), data= make_group).text

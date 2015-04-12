@@ -19,9 +19,9 @@ module V1
 							end
 						else
 							#creates possible user
-							new_user = User.new
-							new_user.contact = invite["contact"]
-							new_user.save
+							user = User.new
+							user.contact = invite["contact"]
+							user.save
 
 							InviteThroughTwilioJob(invite["contact"], @user.name)
 						end
