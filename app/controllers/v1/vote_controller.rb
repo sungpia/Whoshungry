@@ -6,11 +6,12 @@ module V1
 		before_action :parse_restaurants, only: [:create, :update]
 
 		def create
+
 			@vote = Vote.new
-			@vote.vote_type = @parsed["type"]
-			@vote.name = @parsed["name"]
-			@vote.expires_in = @parsed["expires_in"]
-			@vote.expires_at = @parsed["expires_at"]
+			@vote.vote_type = params[:type]
+			@vote.name = params[:name]
+			@vote.expires_in = params[:expires_in]
+			@vote.expires_at = params[:expires_at]
 			@restaurants.each do |restaurant|
 				@vote.restaurants << Restaurant.find_by(place_id: restaurant["place_id"])
 			end
