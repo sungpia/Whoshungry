@@ -8,7 +8,7 @@ module V1
 
 			VerifyThroughTwilioJob.perform_now(verification.contact, verification.code)
 
-			render text: "SENT", status: 200
+			render json: {message: "SENT"}, status: 200
 		end
 		def verify
 			verification = Verification.find_by(contact: params[:contact])

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails Whoshungry: development" uuid="fee751ec-764d-4322-8941-cd6a77f88a9f" />
+    <data-source name="Rails Whoshungry: test" uuid="fb12c8f1-1601-46b0-9359-2178d01c3ea7" />
+    <data-source name="Rails Whoshungry: production" uuid="875dddf5-abf3-44f2-a8f7-9f9ee3874e7c">
+      <user-name>Whoshungry</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddffddfe2dfe5dff9dfe2dfffdfe4dfeddff8dff3dff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+    </data-source>
+  </component>
+</project>
