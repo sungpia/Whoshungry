@@ -1,7 +1,7 @@
 module V1
 	class UserController < ApplicationController
 		before_action :get_user, except: :create
-		before_action :refine_contact
+		before_action :refine_contact, only: [:vcreate]
 
 		def create
 			#Only creates if user is not registered to DB
