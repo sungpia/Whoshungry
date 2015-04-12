@@ -19,7 +19,7 @@ module V1
 			@group.votes << @vote
 
 			@vote.group.users.each do |user|
-				rsvp = Rsvp.new(user: user, vote: @vote, rsvp: 1)
+				rsvp = Rsvp.new(user: user, vote: @vote, rsvp: 0)
 				rsvp.save
 			end
 
