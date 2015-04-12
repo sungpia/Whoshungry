@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 		#group
 		match '/:token/groups', to: 'group#create', via: :post
 		match '/:token/groups', to: 'group#index', via: :get
+		match '/:token/group/:group_id', to: 'group#show', via: :get
 		# match via :get
 		# match '/:token/group/:id', to: 'group#update', via: :update
 		# match '/:token/group/:id', to: 'group#destroy', via: :delete

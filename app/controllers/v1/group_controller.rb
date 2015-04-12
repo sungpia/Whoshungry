@@ -53,7 +53,7 @@ module V1
 
 		def index
 			@groups = @user.groups
-			render json: @groups, status: 200
+			render json: {groups: @groups}, status: 200
 		end
 		def update
 			invitation = JSON.parse(request.raw_post)["invitation"]
