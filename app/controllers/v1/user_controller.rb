@@ -30,7 +30,7 @@ module V1
 				@user.save
 				render "/v1/user/create", status: 201
 			else #Else let user to use update
-				@user = USer.find_by(contact: params[:contact])
+				@user = User.find_by(contact: params[:contact])
 				if @user.registered == false
 					@user.name = params[:name]
 					@user.picture = params[:picture]
