@@ -2,7 +2,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
 
 	mount Sidekiq::Web, at: "/sidekiq"
-	match '/', to: '/healthcheck.html', via: :get
+	match '/', to: 'health#index', via: :get
 	namespace :v1 do
 		#user
 		match 'users', to: 'user#create', via: :post
