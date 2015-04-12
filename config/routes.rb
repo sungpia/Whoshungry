@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 		#user
 		match 'users', to: 'user#create', via: :post
 		match ':token/user/:user_id', to: 'user#show', via: :get
+		match 'users', to: 'user#update', via: :put
 		# match 'user/:token/:id', to: 'user#destroy', via: :delete
 		# match 'user/:token/:id', to: 'user#update', via: :update
 		#auth
