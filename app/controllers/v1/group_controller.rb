@@ -10,40 +10,29 @@ module V1
 			@group.users << @user
 			@group.save
 				invitation.each do |invite|
-					puts "DEBUG POINT1"
-					if invite.has_key?("contact") #validating form
-						puts "DEBUG POINT2"
-						if User.exists?(contact: invite["contact"]) #Does user exists with contact? else invite through Twilio
-							puts "DEBUG POINT3"
+					if invite.has_key?("fb_id")
+						if User.exists?(fb_id: invite["fb_id"])
+							user = User.find_by(fb_id: invite["fb_id"])
+						else
 
+						end
+					elsif invite.has_key?("contact") #validating form
+						if User.exists?(contact: invite["contact"]) #Does user exists with contact? else invite through Twilio
 							user = User.find_by(contact: invite["contact"])
 							if User.find_by(contact: invite["contact"]).registered == true #If not ghost user
-								puts "DEBUG POINT4"
 								# user = User.find_by(contact: invite["contact"])
-								puts "DEBUG POINT5"
 							else
-								puts "DEBUG POINT6"
 								InviteThroughTwilioJob.perform_now(invite["contact"], @user.name)
-								puts "DEBUG POINT7"
 							end
-							puts "DEBUG POINT8"
 						else
-							puts "DEBUG POINT9"
 							#creates possible user
 							user = User.new
 							user.contact = invite["contact"]
 							user.save
-							puts "DEBUG POINT10"
 							InviteThroughTwilioJob.perform_now(invite["contact"], @user.name)
-							puts "DEBUG POINT11"
 						end
-						puts "DEBUG POINT12"
 					end
-					puts "DEBUG POINT13"
-
 					@group.users.each do |u|
-						puts "USER id", user.id
-						puts "U id", u.id
 						if(u.id != user.id)
 							@group.users << user
 						end

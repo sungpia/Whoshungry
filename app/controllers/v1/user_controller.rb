@@ -29,7 +29,7 @@ module V1
 
 				@user.save
 
-				render "/v1/user/create", status: 201
+				render "/v1/user/create",  status: 201
 			else #Else let user to use update
 				render json: {error: "duplicate user : use update"}, status: 409
 			end
