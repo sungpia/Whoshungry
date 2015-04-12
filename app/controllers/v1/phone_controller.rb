@@ -11,10 +11,11 @@ module V1
 			render json: {message: "SENT"}, status: 200
 		end
 		def verify
-			verification = Verification.find_by(contact: params[:contact]).last
+			verification = Verification.where(contact: params[:contact]).last
 			text = ""
 			if verification.code == params[:code]
 				text = "OK"
+				verification.destroy
 			else
 				text = "WRONG"
 			end
