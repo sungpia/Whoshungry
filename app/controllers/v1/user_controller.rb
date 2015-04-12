@@ -29,32 +29,34 @@ module V1
 
 				@user.save
 				render "/v1/user/create", status: 201
-			elsif User.exists?(contact: params[:contact]) == true && User.registered == false
-				@user = User.find_by(contact: params[:contact])
-				@user = User.new
-				@user.name = params[:name]
-				@user.picture = params[:picture]
-				@user.contact = params[:contact]
-				@user.email = params[:email]
-				@user.fb_id = params[:fb_id]
-				@user.password = params[:access_token]
-				@user.registered = true
-				#create device and link to user
-				device = Device.new
-				device.os_type = params[:os_type]
-				device.push_id = params[:push_id]
-				device.save
-				@user.devices << device
-				#create auth and link to user
-				auth = Auth.new
-				auth.login_type = "facebook"
-				auth.save #auth will auto-generate token
-				@user.auth = auth
-
-				@user.save
-				render "/v1/user/create",  status: 201
 			else #Else let user to use update
-				render json: {error: "duplicate user : use update"}, status: 409
+				@user = USer.find_by(contact: params[:contact])
+				if @user.registered == false
+					@user.name = params[:name]
+					@user.picture = params[:picture]
+					@user.contact = params[:contact]
+					@user.email = params[:email]
+					@user.fb_id = params[:fb_id]
+					@user.password = params[:access_token]
+					@user.registered = true
+					#create device and link to user
+					device = Device.new
+					device.os_type = params[:os_type]
+					device.push_id = params[:push_id]
+					device.save
+					@user.devices << device
+					#create auth and link to user
+					auth = Auth.new
+					auth.login_type = "facebook"
+					auth.save #auth will auto-generate token
+					@user.auth = auth
+
+					@user.save
+					render "/v1/user/create",  status: 201
+				else
+
+					render json: {error: "duplicate user : use update"}, status: 409
+				end
 			end
 		end
 
