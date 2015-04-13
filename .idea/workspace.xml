@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbf9af51-3150-46a8-ad67-f6910f335a36" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/v1/choice_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/v1/choice_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Whoshungry.iws" />
@@ -58,11 +58,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="choice_controller.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="choice_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/v1/choice_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.63131315" vertical-offset="405" max-vertical-offset="1410">
-              <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="1410">
+              <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8737374" vertical-offset="306" max-vertical-offset="915">
+              <caret line="55" column="13" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -128,16 +138,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="choice.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/choice.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
-              <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="overlap.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/overlap.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -184,7 +184,6 @@
         <option value="$PROJECT_DIR$/app/views/v1/location/index.json.rabl" />
         <option value="$PROJECT_DIR$/db/migrate/20150404073531_create_verifications.rb" />
         <option value="$PROJECT_DIR$/app/jobs/send_push_job.rb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/jobs/verify_through_twilio_job.rb" />
         <option value="$PROJECT_DIR$/app/jobs/close_vote_push_job.rb" />
         <option value="$PROJECT_DIR$/app/jobs/invite_people_push_job.rb" />
@@ -219,6 +218,7 @@
         <option value="$PROJECT_DIR$/db/migrate/20150413044732_create_overlaps.rb" />
         <option value="$PROJECT_DIR$/app/models/verification.rb" />
         <option value="$PROJECT_DIR$/app/controllers/v1/choice_controller.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -1389,7 +1389,13 @@
       <option name="project" value="LOCAL" />
       <updated>1428901372280</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="fix">
+      <created>1428902792883</created>
+      <option name="number" value="00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1428902792883</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1458,14 +1464,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/v1/auth/login.json.rabl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="828">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/v1/choice/make.json.rabl">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="828">
@@ -1860,8 +1858,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/v1/choice_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.63131315" vertical-offset="405" max-vertical-offset="1410">
-          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="1410">
+          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8737374" vertical-offset="306" max-vertical-offset="915">
+          <caret line="55" column="13" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
           <folding />
         </state>
       </provider>
