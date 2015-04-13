@@ -40,11 +40,14 @@ module V1
 					@user.password = params[:access_token]
 					@user.registered = true
 					#create device and link to user
-					device = Device.new
-					device.os_type = params[:os_type]
-					device.push_id = params[:push_id]
-					device.save
-					@user.devices << device
+					if Device.exists?(push_id: params[:push_id]) == false
+						device = Device.new
+						device.os_type = params[:os_type]
+						device.push_id = params[:push_id]
+						device.save
+						@user.devices << device
+					end
+
 					#create auth and link to user
 					auth = Auth.new
 					auth.login_type = "facebook"
@@ -84,7 +87,7 @@ module V1
 			render "/v1/user/create",  status: 201
 		end
 		def show
-			render json: @user, status: 200
+			render "/v1/user/show", status: 200
 		end
 		private
 		def refine_contact
