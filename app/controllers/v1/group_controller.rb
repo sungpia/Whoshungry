@@ -32,11 +32,11 @@ module V1
 							InviteThroughTwilioJob.perform_now(invite["contact"], @user.name)
 						end
 					end
-					@group.users.each do |u|
-						if(u.id != user.id)
-							@group.users << user
-						end
+
+					if @group.users.where(id: user.id) == nil
+						@group.users << user
 					end
+
 				end
 				@group.save
 			# rescue
