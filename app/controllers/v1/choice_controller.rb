@@ -29,12 +29,7 @@ module V1
 		end
 		def index
 			@choices = Choice.where(vote_id: @vote.id)
-			if Overlap.exists?(user: @user, vote: @vote)
-				@overlap = Overlap.find_by(user: @user, vote: @vote)
-			else
-				@overlap = Overlap.new
-				@overlap.save
-			end
+			@overlaps = Overlap.where(user: @user, choice: @choice)
 			render "v1/choice/index", status: 200
 		end
 		def show

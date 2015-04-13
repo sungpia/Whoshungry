@@ -52,6 +52,9 @@ Rails.application.routes.draw do
 		#Chat
 		match ':token/:vote_id/chat', to: 'chat#create', via: :post
 		match ':token/:vote_id/chat', to: 'chat#index', via: :get
+
+		#Overlap
+		match ':token/:choice_id/overlap', to: 'overlap#show', via: :get
 	end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
