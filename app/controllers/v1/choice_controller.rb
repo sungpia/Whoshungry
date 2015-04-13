@@ -43,9 +43,9 @@ module V1
 			if Overlap.exists?(user: @user, choice: @choice)
 				puts "OVERLAP EXISTS".red
 				@overlap = Overlap.find_by(user: @user, choice: @choice)
-				if -1 <= overlap.overlap + count && overlap.overlap + count <=1
-					overlap.overlap = overlap.overlap + count
-					overlap.save
+				if -1 <= @overlap.overlap + count && @overlap.overlap + count <=1
+					@overlap.overlap = @overlap.overlap + count
+					@overlap.save
 					@choice.count = @choice.count + params[:count].to_i
 					@choice.save
 					VoteMadeJob.perform_now(@choice.vote.group)
@@ -53,8 +53,8 @@ module V1
 
 				end
 			else
-				@overlap = Overlap.new
-				@overlap.overlap = overlap.overlap + count
+				@overlap = Overlap.newv
+				@overlap.overlap = @overlap.overlap + count
 				@overlap.save
 				@choice.count = @choice.count + params[:count].to_i
 				@choice.save
