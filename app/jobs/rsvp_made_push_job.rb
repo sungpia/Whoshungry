@@ -9,11 +9,7 @@ class RsvpMadePushJob < ActiveJob::Base
 	  APNS.send_notification(push_id,
 	                         :alert => "RSVP MADE",
 	                         :sound => "owlsound.caf",
-	                         :badge => +1,
-	                         :others => {
-			                         :group_id => group_id,
-			                         :vote_id => vote_id
-	                         }
+	                         :badge => +1
 	  )
 
 	  APNS.host = 'gateway.push.apple.com'
@@ -22,11 +18,7 @@ class RsvpMadePushJob < ActiveJob::Base
 	  APNS.send_notification(push_id,
 	                         :alert => "RSVP MADE",
 	                         :sound => "owlsound.caf",
-	                         :badge => +1,
-	                         :others => {
-			                         :group_id => group_id,
-			                         :vote_id => vote_id
-	                         }
+	                         :badge => +1
 	  )
   end
 end

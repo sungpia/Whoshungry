@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbf9af51-3150-46a8-ad67-f6910f335a36" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/v1/rsvp_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/v1/rsvp_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/rsvp_made_push_job.rb" afterPath="$PROJECT_DIR$/app/jobs/rsvp_made_push_job.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Whoshungry.iws" />
@@ -78,31 +78,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rsvp_controller.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="rsvp_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/v1/rsvp_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.09057971" vertical-offset="0" max-vertical-offset="828">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
               <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <file leaf-file-name="rsvp_made_job.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/jobs/rsvp_made_job.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1740">
-              <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+              <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="choice_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/v1/choice_controller.rb">
+      <file leaf-file-name="rsvp_made_push_job.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/jobs/rsvp_made_push_job.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1140">
-              <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.36231884" vertical-offset="0" max-vertical-offset="828">
+              <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -196,7 +196,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/jobs/rsvp_made_job.rb" />
         <option value="$PROJECT_DIR$/app/jobs/vote_made_push_job.rb" />
-        <option value="$PROJECT_DIR$/app/jobs/rsvp_made_push_job.rb" />
         <option value="$PROJECT_DIR$/app/jobs/chat_made_push_job.rb" />
         <option value="$PROJECT_DIR$/app/controllers/v1/auth_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/v1/chat_controller.rb" />
@@ -219,6 +218,7 @@
         <option value="$PROJECT_DIR$/app/jobs/close_vote_job.rb" />
         <option value="$PROJECT_DIR$/app/jobs/invite_people_job.rb" />
         <option value="$PROJECT_DIR$/app/controllers/v1/rsvp_controller.rb" />
+        <option value="$PROJECT_DIR$/app/jobs/rsvp_made_push_job.rb" />
       </list>
     </option>
   </component>
@@ -1341,7 +1341,13 @@
       <option name="project" value="LOCAL" />
       <updated>1428886350729</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="fix">
+      <created>1428886393507</created>
+      <option name="number" value="00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1428886393507</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1473,21 +1479,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/rsvp_made_push_job.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
-          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/rsvp_made_job.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -1805,8 +1796,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/v1/rsvp_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09057971" vertical-offset="0" max-vertical-offset="828">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
           <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/rsvp_made_job.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/rsvp_made_push_job.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36231884" vertical-offset="0" max-vertical-offset="828">
+          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
           <folding />
         </state>
       </provider>
