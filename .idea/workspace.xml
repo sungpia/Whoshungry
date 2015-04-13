@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbf9af51-3150-46a8-ad67-f6910f335a36" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/v1/choice_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/v1/choice_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/v1/choice/index.json.rabl" afterPath="$PROJECT_DIR$/app/views/v1/choice/index.json.rabl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/v1/choice/make.json.rabl" afterPath="$PROJECT_DIR$/app/views/v1/choice/make.json.rabl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Whoshungry.iws" />
@@ -1127,12 +1124,6 @@
       <option name="number" value="Default" />
       <updated>1424933048092</updated>
     </task>
-    <task id="LOCAL-00003" summary="Database setup">
-      <created>1425003707897</created>
-      <option name="number" value="00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1425003707897</updated>
-    </task>
     <task id="LOCAL-00004" summary="Database setup&#10;">
       <created>1425005493336</created>
       <option name="number" value="00004" />
@@ -1421,12 +1412,18 @@
       <option name="project" value="LOCAL" />
       <updated>1428917142563</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="fix">
+      <created>1428917687563</created>
+      <option name="number" value="00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1428917687563</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943925" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32827103" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
