@@ -40,7 +40,7 @@ module V1
 			#BAD METHOD, should take it off
 			count = params[:count].to_i
 			puts "#{count}".red
-			if Overlap.exists?(user: @user, choice: @choice)
+			if Overlap.exists?(user: @user, choice: @choice) == true
 				puts "OVERLAP EXISTS".red
 				@overlap = Overlap.find_by(user: @user, choice: @choice)
 				if -1 <= @overlap.overlap + count && @overlap.overlap + count <=1
