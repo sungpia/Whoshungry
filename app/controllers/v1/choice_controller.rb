@@ -1,6 +1,7 @@
 module V1
 	class ChoiceController < ApplicationController
-		before_action :get_user, :get_vote, except: [:make ]
+		before_action :get_user
+		before_action :get_vote, except: [:make ]
 		before_action :get_choice, except: [:create, :index]
 		def create
 			if Restaurant.exists?(place_id: params[:place_id])
@@ -45,7 +46,7 @@ module V1
 					@choice.save
 					VoteMadeJob.perform_now(@choice.vote.group)
 				else
-					render json: {error: "voting limit exceeded"}, status: 200
+					render json: {error: "voting limit exceeded"}, status: 200 and return
 				end
 			else
 				overlap = Overlap.new
