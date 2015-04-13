@@ -32,12 +32,13 @@ module V1
 		def show
 			render "v1/choice/show", status: 200
 		end
+
 		def make
 			#BAD METHOD, should take it off
 			@choice.count = @choice.count + params[:count].to_i
 			@choice.save
 
-			VoteMadeJob.perform_now(@vote.group)
+			VoteMadeJob.perform_now(@choice.vote.group)
 			render "v1/choice/make", status: 201
 		end
 		def destroy
@@ -61,7 +62,7 @@ module V1
 		end
 		def get_choice
 			begin
-				@choice = Choice.find(params[:id])
+				@choice = Choice.find(params[:choice_id])
 			rescue
 				render json: {error: "invalid choice id"}, status: 404
 			end

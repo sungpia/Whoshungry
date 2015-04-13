@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 		#choice
 		match '/:token/:vote_id/choices', to: 'choice#index', via: :get
 		match '/:token/:vote_id/choices', to: 'choice#create', via: :post
-		match '/:token/choice/:id', to: 'choice#make', via: :put
+		match '/:token/choice/:choice_id', to: 'choice#make', via: :put
 		#match '/:token/:vote_id/choice/:id', to: 'choice#update', via: :get
 		# match '/:token/:vote_id/choice/:id', to: 'choice#destroy', via: :delete
 		# match '/:token/:vote_id/choice/:id', to: 'choice#make', via: :update
