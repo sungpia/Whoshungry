@@ -1,3 +1,4 @@
+require 'colorize'
 module V1
 	class ChoiceController < ApplicationController
 		before_action :get_user
@@ -37,9 +38,9 @@ module V1
 		def make
 			#BAD METHOD, should take it off
 			count = params[:count].to_i
-			put count
+			puts "#{count}".red
 			if Overlap.exists?(user: @user, choice: @choice)
-				put "OVERLAP EXISTS"
+				puts "OVERLAP EXISTS".red
 				overlap = Overlap.find_by(user: @user, choice: @choice)
 				if -1 <= overlap.overlap + count && overlap.overlap + count <=1
 					overlap.overlap = overlap.overlap + count
