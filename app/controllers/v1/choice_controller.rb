@@ -53,7 +53,7 @@ module V1
 
 				end
 			else
-				@overlap = Overlap.newv
+				@overlap = Overlap.new
 				@overlap.overlap = @overlap.overlap + count
 				@overlap.save
 				@choice.count = @choice.count + params[:count].to_i

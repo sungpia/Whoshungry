@@ -4,7 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/app/jobs/invite_people_push_job.rb" description="}" line="18" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dbf9af51-3150-46a8-ad67-f6910f335a36" name="Default" comment="fix">
+    <list default="true" id="dbf9af51-3150-46a8-ad67-f6910f335a36" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/v1/choice_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/v1/choice_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -52,7 +52,7 @@
         <entry file="file://$PROJECT_DIR$/app/controllers/v1/choice_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.35978836" vertical-offset="621" max-vertical-offset="1470">
-              <caret line="55" column="31" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="31" />
+              <caret line="55" column="30" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -1125,12 +1125,6 @@
       <option name="number" value="Default" />
       <updated>1424933048092</updated>
     </task>
-    <task id="LOCAL-00006" summary="made">
-      <created>1426831942824</created>
-      <option name="number" value="00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1426831942824</updated>
-    </task>
     <task id="LOCAL-00007" summary="release&#10;">
       <created>1428742523635</created>
       <option name="number" value="00007" />
@@ -1419,7 +1413,13 @@
       <option name="project" value="LOCAL" />
       <updated>1428918404535</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="fix">
+      <created>1428918520777</created>
+      <option name="number" value="00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1428918520778</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1891,7 +1891,7 @@
     <entry file="file://$PROJECT_DIR$/app/controllers/v1/choice_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35978836" vertical-offset="621" max-vertical-offset="1470">
-          <caret line="55" column="31" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="31" />
+          <caret line="55" column="30" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
           <folding />
         </state>
       </provider>
