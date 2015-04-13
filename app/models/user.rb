@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 	has_many :locations, dependent: :destroy
 	has_many :devices, dependent: :destroy
 	has_one :auth, dependent: :destroy
+	has_many :overlaps
 	#some method like this..
 	before_save :refine_contact
 

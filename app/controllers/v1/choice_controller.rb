@@ -35,10 +35,27 @@ module V1
 
 		def make
 			#BAD METHOD, should take it off
-			@choice.count = @choice.count + params[:count].to_i
-			@choice.save
+			count = params[:count].to_i
+			if Overlap.exists?(user: @user, choice: @choice)
+				overlap = Overlap.find_by(user: @user, choice: @choice)
+				if overlap.overlap + count < -1 || overlap.overlap + count > 1
+					overlap.overlap = overlap.overlap + count
+					overlap.save
+					@choice.count = @choice.count + params[:count].to_i
+					@choice.save
+					VoteMadeJob.perform_now(@choice.vote.group)
+				else
+					render json: {error: "voting limit exceeded"}, status: 200
+				end
+			else
+				overlap = Overlap.new
+				overlap.overlap = overlap.overlap + count
+				overlap.save
+				@choice.count = @choice.count + params[:count].to_i
+				@choice.save
+				VoteMadeJob.perform_now(@choice.vote.group)
+			end
 
-			VoteMadeJob.perform_now(@choice.vote.group)
 			render "v1/choice/make", status: 200
 		end
 		def destroy
