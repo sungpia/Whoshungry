@@ -3,7 +3,7 @@ module V1
 		before_action :get_user, :get_vote
 
 		def create
-			@rsvp = Rsvp.find_By(user: @user, vote: @vote)
+			@rsvp = Rsvp.find_by(user: @user, vote: @vote)
 			@rsvp.rsvp = params[:rsvp]
 			@rsvp.save
 			RsvpMadeJob.perform_now(@vote.group)
