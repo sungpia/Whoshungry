@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dbf9af51-3150-46a8-ad67-f6910f335a36" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/v1/choice_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/v1/choice_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/v1/choice/index.json.rabl" afterPath="$PROJECT_DIR$/app/views/v1/choice/index.json.rabl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/v1/choice/make.json.rabl" afterPath="$PROJECT_DIR$/app/views/v1/choice/make.json.rabl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Whoshungry.iws" />
@@ -58,11 +60,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="choice_controller.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="choice_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/v1/choice_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2777778" vertical-offset="420" max-vertical-offset="1455">
-              <caret line="39" column="33" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1545">
+              <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="make.json.rabl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/v1/choice/make.json.rabl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="150">
+              <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.json.rabl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/v1/choice/index.json.rabl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.07575758" vertical-offset="0" max-vertical-offset="594">
+              <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -73,16 +95,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="915">
               <caret line="55" column="13" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="phone_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/v1/phone_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -138,16 +150,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/v1/user_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1665">
-              <caret line="57" column="48" selection-start-line="57" selection-start-column="48" selection-end-line="57" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="GeneratorOptions">
@@ -172,9 +174,7 @@
         <option value="$PROJECT_DIR$/config/initializers/rabl_config.rb" />
         <option value="$PROJECT_DIR$/app/views/v1/group/create.json.rabl" />
         <option value="$PROJECT_DIR$/app/views/v1/vote/create.json.rabl" />
-        <option value="$PROJECT_DIR$/app/views/v1/choice/index.json.rabl" />
         <option value="$PROJECT_DIR$/app/views/v1/choice/create.json.rabl" />
-        <option value="$PROJECT_DIR$/app/views/v1/choice/make.json.rabl" />
         <option value="$PROJECT_DIR$/app/views/v1/choice/show.json.rabl" />
         <option value="$PROJECT_DIR$/app/views/v1/rsvp/create.json.rabl" />
         <option value="$PROJECT_DIR$/app/views/v1/rsvp/index.json.rabl" />
@@ -218,7 +218,9 @@
         <option value="$PROJECT_DIR$/app/models/verification.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/controllers/v1/group_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/v1/choice/make.json.rabl" />
         <option value="$PROJECT_DIR$/app/controllers/v1/choice_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/v1/choice/index.json.rabl" />
       </list>
     </option>
   </component>
@@ -1125,12 +1127,6 @@
       <option name="number" value="Default" />
       <updated>1424933048092</updated>
     </task>
-    <task id="LOCAL-00002" summary="Read me update">
-      <created>1424999788014</created>
-      <option name="number" value="00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1424999788014</updated>
-    </task>
     <task id="LOCAL-00003" summary="Database setup">
       <created>1425003707897</created>
       <option name="number" value="00003" />
@@ -1419,7 +1415,13 @@
       <option name="project" value="LOCAL" />
       <updated>1428916987573</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="fix">
+      <created>1428917142563</created>
+      <option name="number" value="00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1428917142563</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1488,14 +1490,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/v1/choice/show.json.rabl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="828">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/v1/group/show.json.rabl">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="150">
@@ -1537,14 +1531,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/v1/choice/create.json.rabl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="828">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/v1/choice/index.json.rabl">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="828">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1890,8 +1876,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/v1/choice_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2777778" vertical-offset="420" max-vertical-offset="1455">
-          <caret line="39" column="33" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1545">
+          <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/v1/choice/make.json.rabl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="150">
+          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/v1/choice/index.json.rabl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07575758" vertical-offset="0" max-vertical-offset="594">
+          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
           <folding />
         </state>
       </provider>

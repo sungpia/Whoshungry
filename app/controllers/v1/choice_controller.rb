@@ -29,6 +29,12 @@ module V1
 		end
 		def index
 			@choices = Choice.where(vote_id: @vote.id)
+			if Overlap.exists?(user: @user, vote: @vote)
+				@overlap = Overlap.find_by(user: @user, vote: @vote)
+			else
+				@overlap = Overlap.new
+				@overlap.save
+			end
 			render "v1/choice/index", status: 200
 		end
 		def show
@@ -41,7 +47,7 @@ module V1
 			puts "#{count}".red
 			if Overlap.exists?(user: @user, choice: @choice)
 				puts "OVERLAP EXISTS".red
-				overlap = Overlap.find_by(user: @user, choice: @choice)
+				@overlap = Overlap.find_by(user: @user, choice: @choice)
 				if -1 <= overlap.overlap + count && overlap.overlap + count <=1
 					overlap.overlap = overlap.overlap + count
 					overlap.save
@@ -49,12 +55,12 @@ module V1
 					@choice.save
 					VoteMadeJob.perform_now(@choice.vote.group)
 				else
-					render json: {error: "voting limit exceeded"}, status: 200 and return
+
 				end
 			else
-				overlap = Overlap.new
-				overlap.overlap = overlap.overlap + count
-				overlap.save
+				@overlap = Overlap.new
+				@overlap.overlap = overlap.overlap + count
+				@overlap.save
 				@choice.count = @choice.count + params[:count].to_i
 				@choice.save
 				VoteMadeJob.perform_now(@choice.vote.group)
