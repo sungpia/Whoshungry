@@ -33,7 +33,7 @@ module V1
 						end
 					end
 
-					if @group.users.where(id: user.id) == nil
+					if @group.users.where(id: user.id)[0] == nil
 						@group.users << user
 					end
 
