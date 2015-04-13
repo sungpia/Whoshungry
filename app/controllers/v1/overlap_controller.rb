@@ -3,6 +3,9 @@ module V1
 		before_action :get_user
 		def show
 			@overlap = Overlap.find_by(user: @user, choice: @choice)
+			if @overlap == nil
+				render json: {error: "empty"}, status: 200 and return
+			end
 			render json: @overlap, status: 200
 		end
 
