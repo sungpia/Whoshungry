@@ -37,9 +37,9 @@ module V1
 		def make
 			#BAD METHOD, should take it off
 			count = params[:count].to_i
-			put count.red
+			put count
 			if Overlap.exists?(user: @user, choice: @choice)
-				put "OVERLAP EXISTS".red
+				put "OVERLAP EXISTS"
 				overlap = Overlap.find_by(user: @user, choice: @choice)
 				if -1 <= overlap.overlap + count && overlap.overlap + count <=1
 					overlap.overlap = overlap.overlap + count
