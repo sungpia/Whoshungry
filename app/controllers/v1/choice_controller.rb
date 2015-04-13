@@ -53,6 +53,7 @@ module V1
 
 				end
 			else
+				puts "OVERLAP CREATED".red
 				@overlap = Overlap.new
 				@overlap.overlap = @overlap.overlap + count
 				@overlap.save
