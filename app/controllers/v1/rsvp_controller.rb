@@ -3,11 +3,11 @@ module V1
 		before_action :get_user, :get_vote
 
 		def create
-			@rsvp = Rsvp.new(user: @user, vote: @vote, rsvp: params[:rsvp])
+			@rsvp = Rsvp.find_By(user: @user, vote: @vote)
+			@rsvp.rsvp = params[:rsvp]
 			@rsvp.save
-			@vote.rsvps << @rsvp
-			RsvpMadeJob.perform_now(@user.group)
-			render 'v1/rsvp/create', status: 201
+			RsvpMadeJob.perform_now(@vote.group)
+			render 'v1/rsvp/create', status: 200
 		end
 		def index
 			render 'v1/rsvp/index', status: 200

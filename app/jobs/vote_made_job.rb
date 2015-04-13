@@ -3,8 +3,10 @@ class VoteMadeJob < ActiveJob::Base
 
   def perform(group)
 		group.users.each do |user|
-			user.devices.each do |device|
-				VoteMadePushJob.perform_now(device.push_id)
+			if user.registered == true
+				user.devices.each do |device|
+					VoteMadePushJob.perform_now(device.push_id)
+				end
 			end
 		end
   end

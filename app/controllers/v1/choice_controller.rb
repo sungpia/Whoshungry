@@ -39,7 +39,7 @@ module V1
 			@choice.save
 
 			VoteMadeJob.perform_now(@choice.vote.group)
-			render "v1/choice/make", status: 201
+			render "v1/choice/make", status: 200
 		end
 		def destroy
 			@choice.destroy
