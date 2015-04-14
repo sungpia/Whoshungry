@@ -56,6 +56,8 @@ module V1
 				puts "OVERLAP CREATED".red
 				@overlap = Overlap.new
 				@overlap.overlap = @overlap.overlap + count
+				@overlap.user = @user
+				@overlap.choice = @choice
 				@overlap.save
 				@choice.count = @choice.count + params[:count].to_i
 				@choice.save
