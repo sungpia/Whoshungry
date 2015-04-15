@@ -15,7 +15,7 @@ module V1
 			users.each do |x|
 				if Rsvp.where(user: x, vote: vote)[0] != nil && Rsvp.find_by(user: x, vote: vote).rsvp == 1
  				  @locations["locations"] << x.locations.last
-				endv
+				end
 			end
 			render json: @locations, status: 200
 		end
