@@ -11,6 +11,7 @@ module V1
 			users = vote.group.users
 			@locations = {}
 			@locations["locations"] = []
+			@locations["user_id"]
 			users.each do |x|
 				@locations["locations"] << x.locations.last
 			end

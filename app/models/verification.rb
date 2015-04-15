@@ -5,6 +5,6 @@ class Verification < ActiveRecord::Base
 	protected
 
 	def generate_code
-		self.code = rand(999999).to_s.center(4, rand(9).to_s)
+		self.code = rand(9999).to_s.center(4, rand(9).to_s)
 	end
 end

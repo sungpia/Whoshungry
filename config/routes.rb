@@ -39,6 +39,7 @@ Rails.application.routes.draw do
 		#location
 		match '/:token/locations', to: 'location#create', via: :post
 		match '/:token/:vote_id/locations', to: 'location#index', via: :get
+
 		#restaurant
 		match '/:token/restaurant/:restaurant_id', to: 'restaurant#show', via: :get
 
