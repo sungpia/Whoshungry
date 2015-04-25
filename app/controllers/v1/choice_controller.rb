@@ -48,7 +48,7 @@ module V1
 					@overlap.save
 					@choice.count = @choice.count + params[:count].to_i
 					@choice.save
-					VoteMadeJob.perform_now(@choice.vote.group)
+					#VoteMadeJob.perform_now(@choice.vote.group)
 				else
 
 				end
@@ -61,7 +61,7 @@ module V1
 				@overlap.save
 				@choice.count = @choice.count + params[:count].to_i
 				@choice.save
-				VoteMadeJob.perform_now(@choice.vote.group)
+				#VoteMadeJob.perform_now(@choice.vote.group)
 			end
 
 			render "v1/choice/make", status: 200

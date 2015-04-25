@@ -1,11 +1,11 @@
 module V1
 	class UserController < ApplicationController
 		before_action :get_user, except: [:create, :update]
-		before_action :refine_contact, only: [:vcreate]
+		before_action :refine_contact, only: [:create]
 
 		def create
 			#Only creates if user is not registered to DB
-			if User.exists?(contact: params[:contact]) == false
+			if User.exists?(contact: params[:contact], fb_id: params[:fb_id]) == false
 				#create user
 				@user = User.new
 				@user.name = params[:name]
@@ -72,11 +72,14 @@ module V1
 			@user.password = params[:access_token]
 			@user.registered = true
 			#create device and link to user
-			device = Device.new
-			device.os_type = params[:os_type]
-			device.push_id = params[:push_id]
-			device.save
-			@user.devices << device
+			if Device.exists?(push_id: params[:push_id]) == false
+				device = Device.new
+				device.os_type = params[:os_type]
+				device.push_id = params[:push_id]
+				device.save
+				@user.devices << device
+			end
+
 			#create auth and link to user
 			auth = Auth.new
 			auth.login_type = "facebook"
