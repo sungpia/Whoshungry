@@ -5,7 +5,7 @@ module V1
 		before_action :get_vote, except: [:make ]
 		before_action :get_choice, except: [:create, :index]
 		def create
-			if Restaurant.exists?(place_id: params[:place_id])
+			if Restaurant.exists?(place_id: params[:place_id]) == true
 				@restaurant = Restaurant.find_by(place_id: params[:place_id])
 			else
 				@restaurant = Restaurant.new
@@ -19,7 +19,7 @@ module V1
 			end
 
 			#check duplication
-			if Choice.exists?(vote: @vote, restaurant: @restaurant)
+			if Choice.exists?(vote: @vote, restaurant: @restaurant) == false
 				render text: "Already existing restaurant in Vote", status: 409 and return
 			else
 				@vote.restaurants << @restaurant
