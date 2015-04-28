@@ -11,18 +11,22 @@ module V1
 			@group.save
 				invitation.each do |invite|
 					if invite.has_key?("fb_id")
+						puts "User name : #{User.find_by(fb_id: invite["fb_id"]).name}".red
+						puts "User has fb_id".red
 						if User.exists?(fb_id: invite["fb_id"]) == true
 							user = User.find_by(fb_id: invite["fb_id"])
 						end
 					elsif invite.has_key?("contact") #validating form
-						if User.exists?(contact: invite["contact"]) #Does user exists with contact? else invite through Twilio
+						puts "New User #{invite["contact"]}".red
+						if User.exists?(contact: invite["contact"]) == true #Does user exists with contact? else invite through Twilio
+							puts "\tUser Already exists : check if he registered".red
 							user = User.find_by(contact: invite["contact"])
-							if User.find_by(contact: invite["contact"]).registered == true #If not ghost user
-								# user = User.find_by(contact: invite["contact"])
-							else
+							if User.find_by(contact: invite["contact"]).registered == false
+								puts "User is not registered : sent him sms".red
 								InviteThroughTwilioJob.perform_now(invite["contact"], @user.name)
 							end
 						else
+							puts "User is totally new here".red
 							#creates possible user
 							user = User.new
 							user.contact = invite["contact"]
