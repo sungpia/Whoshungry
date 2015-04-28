@@ -11,10 +11,8 @@ module V1
 			@group.save
 				invitation.each do |invite|
 					if invite.has_key?("fb_id")
-						if User.exists?(fb_id: invite["fb_id"])
+						if User.exists?(fb_id: invite["fb_id"]) == true
 							user = User.find_by(fb_id: invite["fb_id"])
-						else
-
 						end
 					elsif invite.has_key?("contact") #validating form
 						if User.exists?(contact: invite["contact"]) #Does user exists with contact? else invite through Twilio
