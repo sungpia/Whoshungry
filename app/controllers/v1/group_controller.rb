@@ -108,7 +108,9 @@ module V1
 			begin
 				invitation.each do |invite|
 					puts invite
-					if invite.has_key?("contact")
+					if invite.has_key?("fb_id")
+						next
+					elsif invite.has_key?("contact")
 						puts "yes1"
 						if User.exists?(contact: invite["contact"])
 							puts "yes2"
