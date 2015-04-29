@@ -19,7 +19,7 @@ module V1
 			end
 
 			#check duplication
-			if Choice.exists?(vote: @vote, restaurant: @restaurant) == false
+			if Choice.exists?(vote: @vote, restaurant: @restaurant) == true
 				render text: "Already existing restaurant in Vote", status: 409 and return
 			else
 				@vote.restaurants << @restaurant
