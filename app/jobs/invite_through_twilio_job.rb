@@ -7,7 +7,7 @@ class InviteThroughTwilioJob < ActiveJob::Base
     invite_message = args[1] + " Invited you out to eat! Download \"Who's Hungry?\" at http://apple.co/1ATmuD8"
 # put your own credentials here
 	  account_sid = 'AC4f3f27e9fe0992c071939c49ab56ad0f'
-	  auth_token = 'b925a47e99be6e9500707d0a7a0c18ac'
+	  auth_token = 'da4f7a3447e308a033410657612653ff'
 
 	  if contact.length == 10
 			contact = "+1" + contact
