@@ -91,8 +91,8 @@
       <file leaf-file-name="newrelic.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/newrelic.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32608697" vertical-offset="0" max-vertical-offset="828">
-              <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.45289856" vertical-offset="0" max-vertical-offset="828">
+              <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -872,12 +872,6 @@
       <option name="number" value="Default" />
       <updated>1424933048092</updated>
     </task>
-    <task id="LOCAL-00032" summary="fix">
-      <created>1428875684797</created>
-      <option name="number" value="00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1428875684797</updated>
-    </task>
     <task id="LOCAL-00033" summary="fix">
       <created>1428875745450</created>
       <option name="number" value="00033" />
@@ -1166,7 +1160,13 @@
       <option name="project" value="LOCAL" />
       <updated>1437440145466</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="fix">
+      <created>1437441437773</created>
+      <option name="number" value="00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1437441437773</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1599,8 +1599,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/newrelic.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32608697" vertical-offset="0" max-vertical-offset="828">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.45289856" vertical-offset="0" max-vertical-offset="828">
+          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
           <folding />
         </state>
       </provider>
