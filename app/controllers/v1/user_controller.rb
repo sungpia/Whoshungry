@@ -5,7 +5,7 @@ module V1
 
 		def create
 			#Only creates if user is not registered to DB
-			if User.exists?(contact: params[:contact], fb_id: params[:fb_id]) == false
+			if User.exists?(contact: params[:contact]) == false or User.exists?(fb_id: params[:fb_id]) == false
 				#create user
 				@user = User.new
 				@user.name = params[:name]
